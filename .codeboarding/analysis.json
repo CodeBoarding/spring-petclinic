@@ -1,0 +1,3433 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-26T23:26:34.363650+00:00",
+    "source_tree_hash": "9316f399764518312cb0df5edf464632aa04a8ad39beab620c182a3d06417fd9",
+    "repo_name": ".codeboarding-target",
+    "depth_level": 2,
+    "depth_cap": 2,
+    "file_coverage_summary": {
+      "total_files": 92,
+      "analyzed": 30,
+      "not_analyzed": 62,
+      "not_analyzed_by_reason": {
+        "other": 42,
+        "codeboardingignore": 20
+      }
+    }
+  },
+  "description": "Spring PetClinic is a Spring Boot sample application showcasing standard Spring MVC and Spring Data JPA monolithic architecture patterns for veterinary clinic management. The application lifecycle begins at Application Bootstrap, which configures runtime hints and initializes the Spring application context. When incoming HTTP requests arrive, they are processed through the web layer configured by Web Presentation and Localization, which routes requests to either domain-specific controllers such as Owner and Pet Management (handling pet owner profiles, pet details, and visit schedules) or Veterinarian Management (providing paginated vet listings and specialties). Cross-cutting infrastructure concerns like caching and exception testing are managed by Cache Configuration and Diagnostics to optimize database reads via Spring Cache and verify application error handling workflows.",
+  "files": {
+    "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.BaseEntity",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.setId(Integer)",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()"
+      ],
+      "content_hash": "7e376b41ef2726ef",
+      "module_hash": "c78ab574a1cff53c"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.NamedEntity",
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.setName(String)",
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.toString()"
+      ],
+      "content_hash": "e42b68533562d6df",
+      "module_hash": "f30d7d9525909572"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/Person.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.Person",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.getFirstName()",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.setFirstName(String)",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.getLastName()",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.setLastName(String)"
+      ],
+      "content_hash": "0162af9aff8633fa",
+      "module_hash": "1ecdc9840207e7fb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.Owner",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getAddress()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.setAddress(String)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getCity()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.setCity(String)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getTelephone()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.setTelephone(String)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.toString()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addVisit(Integer, Visit)"
+      ],
+      "content_hash": "057abdc3a925257c",
+      "module_hash": "fb337a355f4bcab5"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController(OwnerRepository)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.setAllowedFields(WebDataBinder)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findOwner(Integer)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initCreationForm()",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processCreationForm(Owner, BindingResult, RedirectAttributes)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initFindForm()",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processFindForm(int, Owner, BindingResult, Model)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.addPaginationModel(int, Model, Page)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findPaginatedForOwnersLastName(int, String)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initUpdateOwnerForm()",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processUpdateOwnerForm(Owner, BindingResult, int, RedirectAttributes)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.showOwner(int)"
+      ],
+      "content_hash": "7688e8e84f308d72",
+      "module_hash": "5825eb3110632cd1"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.OwnerRepository",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findByLastNameStartingWith(String, Pageable)",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findById(Integer)"
+      ],
+      "content_hash": "b65eb540ef95a44a",
+      "module_hash": "2f5ff6ba96e8c64d"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.Pet",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.setBirthDate(LocalDate)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getBirthDate()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getType()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.setType(PetType)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getVisits()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.addVisit(Visit)"
+      ],
+      "content_hash": "bd1445bd68fb970c",
+      "module_hash": "5bd3ceb9f61586c5"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController(OwnerRepository, PetTypeRepository)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.populatePetTypes()",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.findOwner(int)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.findPet(int, Integer)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initOwnerBinder(WebDataBinder)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initPetBinder(WebDataBinder)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initUpdateForm()",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.isDuplicatePetNameViolation(DataIntegrityViolationException)"
+      ],
+      "content_hash": "71bff34a077485f8",
+      "module_hash": "68f1d24e4e36d34a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetType.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java|src.main.java.org.springframework.samples.petclinic.owner.PetType.PetType"
+      ],
+      "content_hash": "45f7f09669fb2a11",
+      "module_hash": "a24fa63d53b44e55"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter(PetTypeRepository)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.print(PetType, Locale)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.parse(String, Locale)"
+      ],
+      "content_hash": "96a8e36901f9f0ae",
+      "module_hash": "7883613c9a298a8c"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.PetTypeRepository",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.findPetTypes()"
+      ],
+      "content_hash": "63cd9227368ae477",
+      "module_hash": "573dc96f43c24905"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.PetValidator",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.supports(Class)"
+      ],
+      "content_hash": "3001ad22cd871f61",
+      "module_hash": "7ebb966bd0b28bf7"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Visit.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.getDate()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.setDate(LocalDate)",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.getDescription()",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.setDescription(String)"
+      ],
+      "content_hash": "d9812e1a6a49f962",
+      "module_hash": "d8fa732bf40e266e"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController(OwnerRepository)",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.setAllowedFields(WebDataBinder)",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.loadPetWithVisit(int, int, Map)",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.minVisitDate()",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.initNewVisitForm()",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.processNewVisitForm(Owner, int, Visit, BindingResult, RedirectAttributes)"
+      ],
+      "content_hash": "947de3bd98c0ac75",
+      "module_hash": "dae426f77a0d2ad6"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java|src.main.java.org.springframework.samples.petclinic.vet.Specialty.Specialty"
+      ],
+      "content_hash": "2d520e90d0e574f0",
+      "module_hash": "40b7ea86857b6748"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vet.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.Vet",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialtiesInternal()",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialties()",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.getNrOfSpecialties()",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.addSpecialty(Specialty)"
+      ],
+      "content_hash": "7e305a3841d76c97",
+      "module_hash": "cb5c8a78e633643e"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetController.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController(VetRepository)",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.showVetList(int, Model)",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.addPaginationModel(int, Page, Model)",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.findPaginated(int)",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.showResourcesVetList()"
+      ],
+      "content_hash": "1f1feebd51b8e5b7",
+      "module_hash": "509e293b8f8bc3a8"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java|src.main.java.org.springframework.samples.petclinic.vet.VetRepository.VetRepository",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java|src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll()",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java|src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll(Pageable)"
+      ],
+      "content_hash": "493373d9c53abc2f",
+      "module_hash": "911fb5f6b692591a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vets.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java|src.main.java.org.springframework.samples.petclinic.vet.Vets.Vets",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java|src.main.java.org.springframework.samples.petclinic.vet.Vets.getVetList()"
+      ],
+      "content_hash": "b134120b44cf0c85",
+      "module_hash": "62f49ec93f5222d6"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.WebConfiguration",
+        "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeResolver()",
+        "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeChangeInterceptor()",
+        "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.addInterceptors(InterceptorRegistry)"
+      ],
+      "content_hash": "8dcf5bab4bc062ae",
+      "module_hash": "0924f5a7a14d74e4"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java|src.main.java.org.springframework.samples.petclinic.system.WelcomeController.WelcomeController",
+        "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java|src.main.java.org.springframework.samples.petclinic.system.WelcomeController.welcome()"
+      ],
+      "content_hash": "21091ef254ecf158",
+      "module_hash": "f8a0caae06f006b8"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.CacheConfiguration",
+        "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.petclinicCacheConfigurationCustomizer()",
+        "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.cacheConfiguration()"
+      ],
+      "content_hash": "17fbb60dfda59c26",
+      "module_hash": "77ab504962168bd4"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/CrashController.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/system/CrashController.java|src.main.java.org.springframework.samples.petclinic.system.CrashController.CrashController",
+        "src/main/java/org/springframework/samples/petclinic/system/CrashController.java|src.main.java.org.springframework.samples.petclinic.system.CrashController.triggerException()"
+      ],
+      "content_hash": "fc929e5857deca15",
+      "module_hash": "18c44e470d42dac8"
+    },
+    "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java|src.main.java.org.springframework.samples.petclinic.PetClinicApplication.PetClinicApplication",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java|src.main.java.org.springframework.samples.petclinic.PetClinicApplication.main(String[])"
+      ],
+      "content_hash": "e4b30b80e5346cb3",
+      "module_hash": "981eb240dcec6b4c"
+    },
+    "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java": {
+      "method_keys": [
+        "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java|src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.PetClinicRuntimeHints",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java|src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.registerHints(RuntimeHints, ClassLoader)"
+      ],
+      "content_hash": "4af4c744d9a97bee",
+      "module_hash": "dc70b91cbcb37e87"
+    }
+  },
+  "methods_index": {
+    "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.BaseEntity": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.BaseEntity",
+      "start_line": 33,
+      "end_line": 51,
+      "type": "CLASS",
+      "content_hash": "cbba6f53633efe0d"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+      "start_line": 39,
+      "end_line": 41,
+      "type": "METHOD",
+      "content_hash": "47d2a99d73929c12"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.setId(Integer)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.setId(Integer)",
+      "start_line": 43,
+      "end_line": 45,
+      "type": "METHOD",
+      "content_hash": "2080a6b9aaa95edd"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+      "start_line": 47,
+      "end_line": 49,
+      "type": "METHOD",
+      "content_hash": "124c5b17d9fb29ac"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.NamedEntity": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.NamedEntity",
+      "start_line": 31,
+      "end_line": 51,
+      "type": "CLASS",
+      "content_hash": "b97698b9ae6473eb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+      "start_line": 37,
+      "end_line": 39,
+      "type": "METHOD",
+      "content_hash": "642341e4edaacb13"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.setName(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.setName(String)",
+      "start_line": 41,
+      "end_line": 43,
+      "type": "METHOD",
+      "content_hash": "9023b3ae37d3c160"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.toString()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.toString()",
+      "start_line": 46,
+      "end_line": 49,
+      "type": "METHOD",
+      "content_hash": "16e070796d816af4"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.Person": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.Person.Person",
+      "start_line": 29,
+      "end_line": 57,
+      "type": "CLASS",
+      "content_hash": "a5401654838f74c2"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.getFirstName()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.Person.getFirstName()",
+      "start_line": 41,
+      "end_line": 43,
+      "type": "METHOD",
+      "content_hash": "49bd2b718c165709"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.setFirstName(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.Person.setFirstName(String)",
+      "start_line": 45,
+      "end_line": 47,
+      "type": "METHOD",
+      "content_hash": "9f30c6834a253fb9"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.getLastName()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.Person.getLastName()",
+      "start_line": 49,
+      "end_line": 51,
+      "type": "METHOD",
+      "content_hash": "6467cc89274bcacd"
+    },
+    "src/main/java/org/springframework/samples/petclinic/model/Person.java|src.main.java.org.springframework.samples.petclinic.model.Person.setLastName(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.Person.setLastName(String)",
+      "start_line": 53,
+      "end_line": 55,
+      "type": "METHOD",
+      "content_hash": "32c48b3e4491db25"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.Owner": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.Owner",
+      "start_line": 49,
+      "end_line": 185,
+      "type": "CLASS",
+      "content_hash": "707e51cda9ce2a8a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getAddress()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getAddress()",
+      "start_line": 69,
+      "end_line": 71,
+      "type": "METHOD",
+      "content_hash": "64cfb334465cd6ea"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.setAddress(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.setAddress(String)",
+      "start_line": 73,
+      "end_line": 75,
+      "type": "METHOD",
+      "content_hash": "326534082666736e"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getCity()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getCity()",
+      "start_line": 77,
+      "end_line": 79,
+      "type": "METHOD",
+      "content_hash": "2acd010605ab33ce"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.setCity(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.setCity(String)",
+      "start_line": 81,
+      "end_line": 83,
+      "type": "METHOD",
+      "content_hash": "5c4293c40448c6d3"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getTelephone()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getTelephone()",
+      "start_line": 85,
+      "end_line": 87,
+      "type": "METHOD",
+      "content_hash": "d5eb854281b40c86"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.setTelephone(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.setTelephone(String)",
+      "start_line": 89,
+      "end_line": 91,
+      "type": "METHOD",
+      "content_hash": "3d43d5a42ab2e41f"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+      "start_line": 93,
+      "end_line": 95,
+      "type": "METHOD",
+      "content_hash": "8c1d92b16c50c2ee"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+      "start_line": 97,
+      "end_line": 110,
+      "type": "METHOD",
+      "content_hash": "4e46fb2e0c738667"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String)",
+      "start_line": 117,
+      "end_line": 119,
+      "type": "METHOD",
+      "content_hash": "7d11e4b32b1c6101"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+      "start_line": 126,
+      "end_line": 136,
+      "type": "METHOD",
+      "content_hash": "2d69fa104db6a9c6"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+      "start_line": 144,
+      "end_line": 154,
+      "type": "METHOD",
+      "content_hash": "7dc9bc83f798e51d"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.toString()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.toString()",
+      "start_line": 157,
+      "end_line": 166,
+      "type": "METHOD",
+      "content_hash": "74d5981ad0dbda64"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addVisit(Integer, Visit)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.addVisit(Integer, Visit)",
+      "start_line": 173,
+      "end_line": 183,
+      "type": "METHOD",
+      "content_hash": "61df071e23e0e1f3"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController",
+      "start_line": 49,
+      "end_line": 179,
+      "type": "CLASS",
+      "content_hash": "41a097a493f7c161"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController(OwnerRepository)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController(OwnerRepository)",
+      "start_line": 55,
+      "end_line": 57,
+      "type": "CONSTRUCTOR",
+      "content_hash": "3ba2cd4c339ecb52"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.setAllowedFields(WebDataBinder)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.setAllowedFields(WebDataBinder)",
+      "start_line": 60,
+      "end_line": 62,
+      "type": "METHOD",
+      "content_hash": "eedfcb21c50f15fb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findOwner(Integer)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findOwner(Integer)",
+      "start_line": 65,
+      "end_line": 70,
+      "type": "METHOD",
+      "content_hash": "a47c982dcf9c67b4"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initCreationForm()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initCreationForm()",
+      "start_line": 73,
+      "end_line": 75,
+      "type": "METHOD",
+      "content_hash": "0ddf7c73b1f84fc9"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processCreationForm(Owner, BindingResult, RedirectAttributes)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processCreationForm(Owner, BindingResult, RedirectAttributes)",
+      "start_line": 78,
+      "end_line": 87,
+      "type": "METHOD",
+      "content_hash": "595e40bd3b2932a9"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initFindForm()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initFindForm()",
+      "start_line": 90,
+      "end_line": 92,
+      "type": "METHOD",
+      "content_hash": "82aed8eca7a8975e"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processFindForm(int, Owner, BindingResult, Model)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processFindForm(int, Owner, BindingResult, Model)",
+      "start_line": 95,
+      "end_line": 122,
+      "type": "METHOD",
+      "content_hash": "986f06215ed38116"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.addPaginationModel(int, Model, Page)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.addPaginationModel(int, Model, Page)",
+      "start_line": 124,
+      "end_line": 131,
+      "type": "METHOD",
+      "content_hash": "9346045be1ea4449"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findPaginatedForOwnersLastName(int, String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findPaginatedForOwnersLastName(int, String)",
+      "start_line": 133,
+      "end_line": 137,
+      "type": "METHOD",
+      "content_hash": "5d8eaad1383fedeb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initUpdateOwnerForm()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initUpdateOwnerForm()",
+      "start_line": 140,
+      "end_line": 142,
+      "type": "METHOD",
+      "content_hash": "8a6e2b23af0c8a02"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processUpdateOwnerForm(Owner, BindingResult, int, RedirectAttributes)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processUpdateOwnerForm(Owner, BindingResult, int, RedirectAttributes)",
+      "start_line": 145,
+      "end_line": 162,
+      "type": "METHOD",
+      "content_hash": "34db7c9ea46901c8"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.showOwner(int)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.showOwner(int)",
+      "start_line": 170,
+      "end_line": 177,
+      "type": "METHOD",
+      "content_hash": "c4dc6d956da138d6"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.OwnerRepository": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.OwnerRepository",
+      "start_line": 36,
+      "end_line": 62,
+      "type": "INTERFACE",
+      "content_hash": "33994d1de3537e16"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findByLastNameStartingWith(String, Pageable)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findByLastNameStartingWith(String, Pageable)",
+      "start_line": 45,
+      "end_line": 45,
+      "type": "METHOD",
+      "content_hash": "879dd9bf77dc2b0a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findById(Integer)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findById(Integer)",
+      "start_line": 60,
+      "end_line": 60,
+      "type": "METHOD",
+      "content_hash": "c841c9f4dea3cb76"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.Pet": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.Pet",
+      "start_line": 46,
+      "end_line": 85,
+      "type": "CLASS",
+      "content_hash": "5b8d117066f874d9"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.setBirthDate(LocalDate)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.setBirthDate(LocalDate)",
+      "start_line": 61,
+      "end_line": 63,
+      "type": "METHOD",
+      "content_hash": "009f95f005ae5c6f"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getBirthDate()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.getBirthDate()",
+      "start_line": 65,
+      "end_line": 67,
+      "type": "METHOD",
+      "content_hash": "7bad5194c9fd194a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getType()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.getType()",
+      "start_line": 69,
+      "end_line": 71,
+      "type": "METHOD",
+      "content_hash": "743e197c3dcaad11"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.setType(PetType)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.setType(PetType)",
+      "start_line": 73,
+      "end_line": 75,
+      "type": "METHOD",
+      "content_hash": "6e707c9f3575e8af"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getVisits()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.getVisits()",
+      "start_line": 77,
+      "end_line": 79,
+      "type": "METHOD",
+      "content_hash": "9f669b6521fa23eb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.addVisit(Visit)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.addVisit(Visit)",
+      "start_line": 81,
+      "end_line": 83,
+      "type": "METHOD",
+      "content_hash": "694ac8992e3e19bb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController",
+      "start_line": 49,
+      "end_line": 207,
+      "type": "CLASS",
+      "content_hash": "8615ba267f656d09"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController(OwnerRepository, PetTypeRepository)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController(OwnerRepository, PetTypeRepository)",
+      "start_line": 57,
+      "end_line": 60,
+      "type": "CONSTRUCTOR",
+      "content_hash": "9f001413a892e141"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.populatePetTypes()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.populatePetTypes()",
+      "start_line": 63,
+      "end_line": 65,
+      "type": "METHOD",
+      "content_hash": "cbd732bc9ff00a27"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.findOwner(int)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.findOwner(int)",
+      "start_line": 68,
+      "end_line": 73,
+      "type": "METHOD",
+      "content_hash": "e70d0b031964ad0b"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.findPet(int, Integer)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.findPet(int, Integer)",
+      "start_line": 76,
+      "end_line": 87,
+      "type": "METHOD",
+      "content_hash": "6eb30c10ec154682"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initOwnerBinder(WebDataBinder)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.initOwnerBinder(WebDataBinder)",
+      "start_line": 90,
+      "end_line": 92,
+      "type": "METHOD",
+      "content_hash": "e99c3fbcf3e27954"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initPetBinder(WebDataBinder)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.initPetBinder(WebDataBinder)",
+      "start_line": 95,
+      "end_line": 98,
+      "type": "METHOD",
+      "content_hash": "e72c4243ae8032c8"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)",
+      "start_line": 101,
+      "end_line": 105,
+      "type": "METHOD",
+      "content_hash": "f8db9dcdc64e3ea0"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+      "start_line": 108,
+      "end_line": 137,
+      "type": "METHOD",
+      "content_hash": "0c7a43509a165db5"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initUpdateForm()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.initUpdateForm()",
+      "start_line": 140,
+      "end_line": 142,
+      "type": "METHOD",
+      "content_hash": "b246c06acd9d9201"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+      "start_line": 145,
+      "end_line": 179,
+      "type": "METHOD",
+      "content_hash": "026cfc89f28235be"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+      "start_line": 186,
+      "end_line": 200,
+      "type": "METHOD",
+      "content_hash": "0612e7c5cedaf795"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.isDuplicatePetNameViolation(DataIntegrityViolationException)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.isDuplicatePetNameViolation(DataIntegrityViolationException)",
+      "start_line": 202,
+      "end_line": 205,
+      "type": "METHOD",
+      "content_hash": "8679ad525ac2a95e"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetType.java|src.main.java.org.springframework.samples.petclinic.owner.PetType.PetType": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetType.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetType.PetType",
+      "start_line": 28,
+      "end_line": 30,
+      "type": "CLASS",
+      "content_hash": "5678b1c036acbe07"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter",
+      "start_line": 37,
+      "end_line": 62,
+      "type": "CLASS",
+      "content_hash": "6451de1c4649be91"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter(PetTypeRepository)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter(PetTypeRepository)",
+      "start_line": 41,
+      "end_line": 43,
+      "type": "CONSTRUCTOR",
+      "content_hash": "3c8b8e405261a2bf"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.print(PetType, Locale)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.print(PetType, Locale)",
+      "start_line": 46,
+      "end_line": 49,
+      "type": "METHOD",
+      "content_hash": "c5e12f75a3f5a64d"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.parse(String, Locale)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.parse(String, Locale)",
+      "start_line": 52,
+      "end_line": 60,
+      "type": "METHOD",
+      "content_hash": "9645434bdd80ddb9"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.PetTypeRepository": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.PetTypeRepository",
+      "start_line": 30,
+      "end_line": 39,
+      "type": "INTERFACE",
+      "content_hash": "65a7d1baa5210513"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java|src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.findPetTypes()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.findPetTypes()",
+      "start_line": 37,
+      "end_line": 37,
+      "type": "METHOD",
+      "content_hash": "19838dab129fae07"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.PetValidator": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.PetValidator",
+      "start_line": 32,
+      "end_line": 69,
+      "type": "CLASS",
+      "content_hash": "df846fc975110a58"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+      "start_line": 39,
+      "end_line": 59,
+      "type": "METHOD",
+      "content_hash": "2a8f22042907c4ba"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.supports(Class)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.supports(Class)",
+      "start_line": 65,
+      "end_line": 67,
+      "type": "METHOD",
+      "content_hash": "7d407318a609ba4d"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit",
+      "start_line": 36,
+      "end_line": 68,
+      "type": "CLASS",
+      "content_hash": "37ccf3448612203b"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit()",
+      "start_line": 48,
+      "end_line": 50,
+      "type": "CONSTRUCTOR",
+      "content_hash": "684564834620db16"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.getDate()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Visit.getDate()",
+      "start_line": 52,
+      "end_line": 54,
+      "type": "METHOD",
+      "content_hash": "a09cfcc8040cc2e7"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.setDate(LocalDate)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Visit.setDate(LocalDate)",
+      "start_line": 56,
+      "end_line": 58,
+      "type": "METHOD",
+      "content_hash": "8b8fa2995d6e9ccf"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.getDescription()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Visit.getDescription()",
+      "start_line": 60,
+      "end_line": 62,
+      "type": "METHOD",
+      "content_hash": "5b00d5bfa27c189f"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/Visit.java|src.main.java.org.springframework.samples.petclinic.owner.Visit.setDescription(String)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Visit.setDescription(String)",
+      "start_line": 64,
+      "end_line": 66,
+      "type": "METHOD",
+      "content_hash": "c692c57010cbffd1"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController",
+      "start_line": 43,
+      "end_line": 114,
+      "type": "CLASS",
+      "content_hash": "0523dbcaadd238b5"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController(OwnerRepository)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController(OwnerRepository)",
+      "start_line": 47,
+      "end_line": 49,
+      "type": "CONSTRUCTOR",
+      "content_hash": "9cc938e8066979bb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.setAllowedFields(WebDataBinder)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.setAllowedFields(WebDataBinder)",
+      "start_line": 52,
+      "end_line": 54,
+      "type": "METHOD",
+      "content_hash": "eedfcb21c50f15fb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.loadPetWithVisit(int, int, Map)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.loadPetWithVisit(int, int, Map)",
+      "start_line": 64,
+      "end_line": 81,
+      "type": "METHOD",
+      "content_hash": "3036c4b402ea6fd2"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.minVisitDate()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.minVisitDate()",
+      "start_line": 84,
+      "end_line": 86,
+      "type": "METHOD",
+      "content_hash": "d6baf864c7b8895a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.initNewVisitForm()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.initNewVisitForm()",
+      "start_line": 91,
+      "end_line": 93,
+      "type": "METHOD",
+      "content_hash": "d11497ad71fbcef6"
+    },
+    "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java|src.main.java.org.springframework.samples.petclinic.owner.VisitController.processNewVisitForm(Owner, int, Visit, BindingResult, RedirectAttributes)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.processNewVisitForm(Owner, int, Visit, BindingResult, RedirectAttributes)",
+      "start_line": 98,
+      "end_line": 112,
+      "type": "METHOD",
+      "content_hash": "6024aa41a383bceb"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java|src.main.java.org.springframework.samples.petclinic.vet.Specialty.Specialty": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Specialty.Specialty",
+      "start_line": 30,
+      "end_line": 32,
+      "type": "CLASS",
+      "content_hash": "a65c3f2192b88795"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.Vet": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.Vet",
+      "start_line": 45,
+      "end_line": 74,
+      "type": "CLASS",
+      "content_hash": "7cb91ffa8c75c121"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialtiesInternal()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialtiesInternal()",
+      "start_line": 52,
+      "end_line": 57,
+      "type": "METHOD",
+      "content_hash": "be31aea61a0b52b2"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialties()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialties()",
+      "start_line": 60,
+      "end_line": 64,
+      "type": "METHOD",
+      "content_hash": "e311a3ee26d746a1"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.getNrOfSpecialties()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.getNrOfSpecialties()",
+      "start_line": 66,
+      "end_line": 68,
+      "type": "METHOD",
+      "content_hash": "b00468aeb0bbbbb1"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vet.java|src.main.java.org.springframework.samples.petclinic.vet.Vet.addSpecialty(Specialty)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.addSpecialty(Specialty)",
+      "start_line": 70,
+      "end_line": 72,
+      "type": "METHOD",
+      "content_hash": "0529901a0de53043"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController",
+      "start_line": 36,
+      "end_line": 74,
+      "type": "CLASS",
+      "content_hash": "552564adb3b9887a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController(VetRepository)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController(VetRepository)",
+      "start_line": 40,
+      "end_line": 42,
+      "type": "CONSTRUCTOR",
+      "content_hash": "ef8bd5ff1c1bc018"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.showVetList(int, Model)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetController.showVetList(int, Model)",
+      "start_line": 45,
+      "end_line": 48,
+      "type": "METHOD",
+      "content_hash": "043a7926ca70ef32"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.addPaginationModel(int, Page, Model)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetController.addPaginationModel(int, Page, Model)",
+      "start_line": 50,
+      "end_line": 57,
+      "type": "METHOD",
+      "content_hash": "6c06389bd322cae7"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.findPaginated(int)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetController.findPaginated(int)",
+      "start_line": 59,
+      "end_line": 63,
+      "type": "METHOD",
+      "content_hash": "4f18a5b6a16fee0b"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetController.java|src.main.java.org.springframework.samples.petclinic.vet.VetController.showResourcesVetList()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetController.showResourcesVetList()",
+      "start_line": 66,
+      "end_line": 72,
+      "type": "METHOD",
+      "content_hash": "8f1be6390c3d29a2"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java|src.main.java.org.springframework.samples.petclinic.vet.VetRepository.VetRepository": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetRepository.VetRepository",
+      "start_line": 38,
+      "end_line": 58,
+      "type": "INTERFACE",
+      "content_hash": "a707b20564c01061"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java|src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll()",
+      "start_line": 46,
+      "end_line": 46,
+      "type": "METHOD",
+      "content_hash": "57059e1523ab310b"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java|src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll(Pageable)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll(Pageable)",
+      "start_line": 56,
+      "end_line": 56,
+      "type": "METHOD",
+      "content_hash": "d4174778908828c1"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vets.java|src.main.java.org.springframework.samples.petclinic.vet.Vets.Vets": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vets.Vets",
+      "start_line": 31,
+      "end_line": 43,
+      "type": "CLASS",
+      "content_hash": "7ffce42b3f298e54"
+    },
+    "src/main/java/org/springframework/samples/petclinic/vet/Vets.java|src.main.java.org.springframework.samples.petclinic.vet.Vets.getVetList()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vets.getVetList()",
+      "start_line": 36,
+      "end_line": 41,
+      "type": "METHOD",
+      "content_hash": "0ac7c0aef871cc49"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.WebConfiguration": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.WebConfiguration",
+      "start_line": 25,
+      "end_line": 60,
+      "type": "CLASS",
+      "content_hash": "8e4827a507615ec2"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeResolver()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeResolver()",
+      "start_line": 33,
+      "end_line": 37,
+      "type": "METHOD",
+      "content_hash": "93f498c7bd847b34"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeChangeInterceptor()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeChangeInterceptor()",
+      "start_line": 45,
+      "end_line": 49,
+      "type": "METHOD",
+      "content_hash": "ed17fb87cf46beb4"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.addInterceptors(InterceptorRegistry)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.addInterceptors(InterceptorRegistry)",
+      "start_line": 56,
+      "end_line": 58,
+      "type": "METHOD",
+      "content_hash": "9ae430fc1bf8f723"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java|src.main.java.org.springframework.samples.petclinic.system.WelcomeController.WelcomeController": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WelcomeController.WelcomeController",
+      "start_line": 23,
+      "end_line": 30,
+      "type": "CLASS",
+      "content_hash": "fa3ee66e771a2c0a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java|src.main.java.org.springframework.samples.petclinic.system.WelcomeController.welcome()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WelcomeController.welcome()",
+      "start_line": 26,
+      "end_line": 28,
+      "type": "METHOD",
+      "content_hash": "f3b2d7be09d28dcc"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.CacheConfiguration": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.CacheConfiguration",
+      "start_line": 33,
+      "end_line": 53,
+      "type": "CLASS",
+      "content_hash": "17fea8461cb3f22a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.petclinicCacheConfigurationCustomizer()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.petclinicCacheConfigurationCustomizer()",
+      "start_line": 36,
+      "end_line": 38,
+      "type": "METHOD",
+      "content_hash": "9969be327833e9bf"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java|src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.cacheConfiguration()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.cacheConfiguration()",
+      "start_line": 49,
+      "end_line": 51,
+      "type": "METHOD",
+      "content_hash": "c9c62c299aca7225"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/CrashController.java|src.main.java.org.springframework.samples.petclinic.system.CrashController.CrashController": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/CrashController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.CrashController.CrashController",
+      "start_line": 29,
+      "end_line": 37,
+      "type": "CLASS",
+      "content_hash": "9b6d08b04a2fd6b2"
+    },
+    "src/main/java/org/springframework/samples/petclinic/system/CrashController.java|src.main.java.org.springframework.samples.petclinic.system.CrashController.triggerException()": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/system/CrashController.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.CrashController.triggerException()",
+      "start_line": 32,
+      "end_line": 35,
+      "type": "METHOD",
+      "content_hash": "de0168674d24f8b9"
+    },
+    "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java|src.main.java.org.springframework.samples.petclinic.PetClinicApplication.PetClinicApplication": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.PetClinicApplication.PetClinicApplication",
+      "start_line": 30,
+      "end_line": 36,
+      "type": "CLASS",
+      "content_hash": "d97221aa25c8f3ad"
+    },
+    "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java|src.main.java.org.springframework.samples.petclinic.PetClinicApplication.main(String[])": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.PetClinicApplication.main(String[])",
+      "start_line": 32,
+      "end_line": 34,
+      "type": "METHOD",
+      "content_hash": "e80b59aaf96a709a"
+    },
+    "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java|src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.PetClinicRuntimeHints": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.PetClinicRuntimeHints",
+      "start_line": 25,
+      "end_line": 38,
+      "type": "CLASS",
+      "content_hash": "6c3cb7a1b261ceb9"
+    },
+    "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java|src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.registerHints(RuntimeHints, ClassLoader)": {
+      "file_path": "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+      "qualified_name": "src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.registerHints(RuntimeHints, ClassLoader)",
+      "start_line": 28,
+      "end_line": 36,
+      "type": "METHOD",
+      "content_hash": "f9385c3ebc4e6851"
+    }
+  },
+  "components": [
+    {
+      "name": "Owner and Pet Management",
+      "description": "Manages core veterinary clinic business workflows and domain entities for pet owners, registered pets, and clinic visits, including validation and persistence.",
+      "key_entities": [
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+          "reference_start_line": 49,
+          "reference_end_line": 179
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.OwnerRepository",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+          "reference_start_line": 36,
+          "reference_end_line": 62
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+          "reference_start_line": 49,
+          "reference_end_line": 207
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+          "reference_start_line": 43,
+          "reference_end_line": 114
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.BaseEntity",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+          "reference_start_line": 33,
+          "reference_end_line": 51
+        }
+      ],
+      "source_cluster_ids": [
+        "1",
+        "2",
+        "3"
+      ],
+      "file_methods": [
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.BaseEntity",
+            "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+            "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.setId(Integer)",
+            "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.NamedEntity",
+            "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+            "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.setName(String)",
+            "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.toString()"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.model.Person.Person",
+            "src.main.java.org.springframework.samples.petclinic.model.Person.getFirstName()",
+            "src.main.java.org.springframework.samples.petclinic.model.Person.setFirstName(String)",
+            "src.main.java.org.springframework.samples.petclinic.model.Person.getLastName()",
+            "src.main.java.org.springframework.samples.petclinic.model.Person.setLastName(String)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.Owner",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.getAddress()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.setAddress(String)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.getCity()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.setCity(String)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.getTelephone()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.setTelephone(String)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.toString()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Owner.addVisit(Integer, Visit)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController(OwnerRepository)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.setAllowedFields(WebDataBinder)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findOwner(Integer)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initCreationForm()",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processCreationForm(Owner, BindingResult, RedirectAttributes)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initFindForm()",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processFindForm(int, Owner, BindingResult, Model)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.addPaginationModel(int, Model, Page)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findPaginatedForOwnersLastName(int, String)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initUpdateOwnerForm()",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processUpdateOwnerForm(Owner, BindingResult, int, RedirectAttributes)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.showOwner(int)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.OwnerRepository",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findByLastNameStartingWith(String, Pageable)",
+            "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findById(Integer)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.Pet.Pet",
+            "src.main.java.org.springframework.samples.petclinic.owner.Pet.setBirthDate(LocalDate)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Pet.getBirthDate()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Pet.getType()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Pet.setType(PetType)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Pet.getVisits()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Pet.addVisit(Visit)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController(OwnerRepository, PetTypeRepository)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.populatePetTypes()",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.findOwner(int)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.findPet(int, Integer)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.initOwnerBinder(WebDataBinder)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.initPetBinder(WebDataBinder)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.initUpdateForm()",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetController.isDuplicatePetNameViolation(DataIntegrityViolationException)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetType.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.PetType.PetType"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter(PetTypeRepository)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.print(PetType, Locale)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.parse(String, Locale)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.PetTypeRepository",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.findPetTypes()"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.PetValidator",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+            "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.supports(Class)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit",
+            "src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Visit.getDate()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Visit.setDate(LocalDate)",
+            "src.main.java.org.springframework.samples.petclinic.owner.Visit.getDescription()",
+            "src.main.java.org.springframework.samples.petclinic.owner.Visit.setDescription(String)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController",
+            "src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController(OwnerRepository)",
+            "src.main.java.org.springframework.samples.petclinic.owner.VisitController.setAllowedFields(WebDataBinder)",
+            "src.main.java.org.springframework.samples.petclinic.owner.VisitController.loadPetWithVisit(int, int, Map)",
+            "src.main.java.org.springframework.samples.petclinic.owner.VisitController.minVisitDate()",
+            "src.main.java.org.springframework.samples.petclinic.owner.VisitController.initNewVisitForm()",
+            "src.main.java.org.springframework.samples.petclinic.owner.VisitController.processNewVisitForm(Owner, int, Visit, BindingResult, RedirectAttributes)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.vet.Specialty.Specialty"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.vet.Vet.Vet",
+            "src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialtiesInternal()",
+            "src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialties()",
+            "src.main.java.org.springframework.samples.petclinic.vet.Vet.getNrOfSpecialties()",
+            "src.main.java.org.springframework.samples.petclinic.vet.Vet.addSpecialty(Specialty)"
+          ]
+        }
+      ],
+      "component_id": "1",
+      "can_expand": true,
+      "components": [
+        {
+          "name": "Visit Management and Entity Traversal",
+          "description": "Handles visit registration, linking clinical visit records to specific pets, and provides lookup/traversal mechanisms across owners, pets, and visits.",
+          "key_entities": [
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.addVisit(Integer, Visit)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "reference_start_line": 173,
+              "reference_end_line": 183
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.addVisit(Visit)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+              "reference_start_line": 81,
+              "reference_end_line": 83
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.showOwner(int)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "reference_start_line": 170,
+              "reference_end_line": 177
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.findPet(int, Integer)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "reference_start_line": 76,
+              "reference_end_line": 87
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findById(Integer)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+              "reference_start_line": 60,
+              "reference_end_line": 60
+            }
+          ],
+          "source_cluster_ids": [
+            "1.2",
+            "1.3",
+            "1.14",
+            "1.17",
+            "1.28",
+            "1.37",
+            "1.41",
+            "1.45",
+            "1.46",
+            "1.62",
+            "1.63",
+            "1.64",
+            "1.69",
+            "1.70",
+            "1.71"
+          ],
+          "file_methods": [
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.addVisit(Integer, Visit)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findOwner(Integer)",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.showOwner(int)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.OwnerRepository",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findById(Integer)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Pet.Pet",
+                "src.main.java.org.springframework.samples.petclinic.owner.Pet.getVisits()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Pet.addVisit(Visit)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.findOwner(int)",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.findPet(int, Integer)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetType.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetType.PetType"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit",
+                "src.main.java.org.springframework.samples.petclinic.owner.Visit.Visit()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Visit.getDate()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Visit.getDescription()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.VisitController.loadPetWithVisit(int, int, Map)",
+                "src.main.java.org.springframework.samples.petclinic.owner.VisitController.minVisitDate()",
+                "src.main.java.org.springframework.samples.petclinic.owner.VisitController.processNewVisitForm(Owner, int, Visit, BindingResult, RedirectAttributes)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.vet.Specialty.Specialty"
+              ]
+            }
+          ],
+          "component_id": "1.1",
+          "can_expand": false,
+          "components": [],
+          "components_relations": []
+        },
+        {
+          "name": "Owner Lifecycle and Search Management",
+          "description": "Manages owner discovery, pagination of search results by last name, and processing form submissions for creating and updating owner profiles.",
+          "key_entities": [
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processCreationForm(Owner, BindingResult, RedirectAttributes)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "reference_start_line": 78,
+              "reference_end_line": 87
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findPaginatedForOwnersLastName(int, String)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "reference_start_line": 133,
+              "reference_end_line": 137
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initUpdateOwnerForm()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "reference_start_line": 140,
+              "reference_end_line": 142
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+              "reference_start_line": 39,
+              "reference_end_line": 41
+            }
+          ],
+          "source_cluster_ids": [
+            "1.1",
+            "1.6",
+            "1.9",
+            "1.10",
+            "1.25",
+            "1.27",
+            "1.29",
+            "1.32",
+            "1.33",
+            "1.34",
+            "1.35",
+            "1.38",
+            "1.49",
+            "1.65",
+            "1.72"
+          ],
+          "file_methods": [
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.BaseEntity",
+                "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+                "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.setId(Integer)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.model.Person.Person",
+                "src.main.java.org.springframework.samples.petclinic.model.Person.getFirstName()",
+                "src.main.java.org.springframework.samples.petclinic.model.Person.getLastName()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.toString()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processCreationForm(Owner, BindingResult, RedirectAttributes)",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processFindForm(int, Owner, BindingResult, Model)",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.addPaginationModel(int, Model, Page)",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findPaginatedForOwnersLastName(int, String)",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initUpdateOwnerForm()",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.processUpdateOwnerForm(Owner, BindingResult, int, RedirectAttributes)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerRepository.findByLastNameStartingWith(String, Pageable)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.initPetBinder(WebDataBinder)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Visit.setDate(LocalDate)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.VisitController.setAllowedFields(WebDataBinder)"
+              ]
+            }
+          ],
+          "component_id": "1.2",
+          "can_expand": false,
+          "components": [],
+          "components_relations": []
+        },
+        {
+          "name": "Owner-Pet Composition and Form Binding",
+          "description": "Coordinates the composition of pets within owner entities, sets web binder security allowances, and handles view model initialization for pet creation and editing.",
+          "key_entities": [
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "reference_start_line": 97,
+              "reference_end_line": 110
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "reference_start_line": 93,
+              "reference_end_line": 95
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "reference_start_line": 101,
+              "reference_end_line": 105
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.initUpdateForm()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "reference_start_line": 140,
+              "reference_end_line": 142
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+              "reference_start_line": 47,
+              "reference_end_line": 49
+            }
+          ],
+          "source_cluster_ids": [
+            "1.5",
+            "1.13",
+            "1.15",
+            "1.18",
+            "1.19",
+            "1.20",
+            "1.22",
+            "1.26",
+            "1.36",
+            "1.47",
+            "1.50",
+            "1.51",
+            "1.53",
+            "1.66"
+          ],
+          "file_methods": [
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.Owner",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.getAddress()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.setAddress(String)",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String)",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.OwnerController(OwnerRepository)",
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.setAllowedFields(WebDataBinder)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.initUpdateForm()",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.isDuplicatePetNameViolation(DataIntegrityViolationException)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Visit.setDescription(String)"
+              ]
+            }
+          ],
+          "component_id": "1.3",
+          "can_expand": false,
+          "components": [],
+          "components_relations": []
+        },
+        {
+          "name": "Pet Details and Mutation Processing",
+          "description": "Controls pet attribute modification workflows, birth date and pet type association, and validation rules during pet creation and update processing.",
+          "key_entities": [
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "reference_start_line": 145,
+              "reference_end_line": 179
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "reference_start_line": 186,
+              "reference_end_line": 200
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.setType(PetType)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+              "reference_start_line": 73,
+              "reference_end_line": 75
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.Pet.setBirthDate(LocalDate)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+              "reference_start_line": 61,
+              "reference_end_line": 63
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.setName(String)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+              "reference_start_line": 41,
+              "reference_end_line": 43
+            }
+          ],
+          "source_cluster_ids": [
+            "1.7",
+            "1.16",
+            "1.23",
+            "1.30",
+            "1.39",
+            "1.40",
+            "1.42",
+            "1.43",
+            "1.44",
+            "1.54",
+            "1.55",
+            "1.56",
+            "1.61",
+            "1.67"
+          ],
+          "file_methods": [
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.setName(String)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.getCity()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.setCity(String)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initCreationForm()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Pet.setBirthDate(LocalDate)",
+                "src.main.java.org.springframework.samples.petclinic.owner.Pet.getBirthDate()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Pet.getType()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Pet.setType(PetType)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.PetController(OwnerRepository, PetTypeRepository)",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.PetTypeFormatter(PetTypeRepository)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController",
+                "src.main.java.org.springframework.samples.petclinic.owner.VisitController.VisitController(OwnerRepository)"
+              ]
+            }
+          ],
+          "component_id": "1.4",
+          "can_expand": false,
+          "components": [],
+          "components_relations": []
+        },
+        {
+          "name": "Pet Type Formatting and Metadata Services",
+          "description": "Provides conversion and formatting facilities for pet types between UI text representations and domain models, along with reference data population for web views.",
+          "key_entities": [
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.parse(String, Locale)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+              "reference_start_line": 52,
+              "reference_end_line": 60
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.print(PetType, Locale)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+              "reference_start_line": 46,
+              "reference_end_line": 49
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.PetController.populatePetTypes()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "reference_start_line": 63,
+              "reference_end_line": 65
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initFindForm()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "reference_start_line": 90,
+              "reference_end_line": 92
+            }
+          ],
+          "source_cluster_ids": [
+            "1.4",
+            "1.8",
+            "1.11",
+            "1.12",
+            "1.21",
+            "1.24",
+            "1.31",
+            "1.48",
+            "1.52",
+            "1.57",
+            "1.58",
+            "1.59",
+            "1.60",
+            "1.68"
+          ],
+          "file_methods": [
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.NamedEntity",
+                "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+                "src.main.java.org.springframework.samples.petclinic.model.NamedEntity.toString()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.model.Person.setFirstName(String)",
+                "src.main.java.org.springframework.samples.petclinic.model.Person.setLastName(String)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.getTelephone()",
+                "src.main.java.org.springframework.samples.petclinic.owner.Owner.setTelephone(String)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.OwnerController.initFindForm()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.populatePetTypes()",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetController.initOwnerBinder(WebDataBinder)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.print(PetType, Locale)",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetTypeFormatter.parse(String, Locale)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.PetTypeRepository",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetTypeRepository.findPetTypes()"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.PetValidator",
+                "src.main.java.org.springframework.samples.petclinic.owner.PetValidator.supports(Class)"
+              ]
+            },
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.owner.VisitController.initNewVisitForm()"
+              ]
+            }
+          ],
+          "component_id": "1.5",
+          "can_expand": false,
+          "components": [],
+          "components_relations": []
+        },
+        {
+          "name": "Veterinarian Specialties Domain",
+          "description": "Models veterinary medical practitioners and their clinical specialty associations within the domain layer.",
+          "key_entities": [
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.addSpecialty(Specialty)",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+              "reference_start_line": 70,
+              "reference_end_line": 72
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialties()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+              "reference_start_line": 60,
+              "reference_end_line": 64
+            },
+            {
+              "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vet.getNrOfSpecialties()",
+              "reference_file": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+              "reference_start_line": 66,
+              "reference_end_line": 68
+            }
+          ],
+          "source_cluster_ids": [
+            "1.73",
+            "1.74",
+            "1.75",
+            "1.76"
+          ],
+          "file_methods": [
+            {
+              "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+              "methods": [
+                "src.main.java.org.springframework.samples.petclinic.vet.Vet.Vet",
+                "src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialtiesInternal()",
+                "src.main.java.org.springframework.samples.petclinic.vet.Vet.getSpecialties()",
+                "src.main.java.org.springframework.samples.petclinic.vet.Vet.getNrOfSpecialties()",
+                "src.main.java.org.springframework.samples.petclinic.vet.Vet.addSpecialty(Specialty)"
+              ]
+            }
+          ],
+          "component_id": "1.6",
+          "can_expand": false,
+          "components": [],
+          "components_relations": []
+        }
+      ],
+      "components_relations": [
+        {
+          "relation": "Traverses pet collections within owner aggregates",
+          "src_name": "Visit Management and Entity Traversal",
+          "dst_name": "Owner-Pet Composition and Form Binding",
+          "evidence": "Entity traversal methods navigate owner-pet aggregate structures using Owner.getPets() and Pet instances to associate visits and locate pets for viewing.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+              "call_sites": [
+                {
+                  "line": 128,
+                  "column": 13
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+              "call_sites": [
+                {
+                  "line": 127,
+                  "column": 18
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.1",
+          "dst_id": "1.3",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+              "call_sites": [
+                {
+                  "line": 128,
+                  "column": 13
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+              "call_sites": [
+                {
+                  "line": 127,
+                  "column": 18
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findOwner(Integer)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.Owner",
+              "call_sites": [
+                {
+                  "line": 66,
+                  "column": 32
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "Resolves owner identities during view hydration",
+          "src_name": "Visit Management and Entity Traversal",
+          "dst_name": "Owner Lifecycle and Search Management",
+          "evidence": "Owner presentation and entity lookup mechanisms traverse aggregate roots using BaseEntity.getId() to coordinate navigation and view state.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 129,
+                  "column": 26
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.1",
+          "dst_id": "1.2",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 129,
+                  "column": 26
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "Mutates and associates pet instances within owner models",
+          "src_name": "Pet Details and Mutation Processing",
+          "dst_name": "Owner-Pet Composition and Form Binding",
+          "evidence": "Pet form submission handlers invoke Owner.addPet() and Owner.getPet() to link pet entities and verify uniqueness against existing pets in the owner aggregate.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+              "call_sites": [
+                {
+                  "line": 152,
+                  "column": 28
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+              "call_sites": [
+                {
+                  "line": 197,
+                  "column": 10
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+              "call_sites": [
+                {
+                  "line": 51,
+                  "column": 11
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.4",
+          "dst_id": "1.3",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+              "call_sites": [
+                {
+                  "line": 152,
+                  "column": 28
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.isDuplicatePetNameViolation(DataIntegrityViolationException)",
+              "call_sites": [
+                {
+                  "line": 171,
+                  "column": 9
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+              "call_sites": [
+                {
+                  "line": 197,
+                  "column": 10
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+              "call_sites": [
+                {
+                  "line": 51,
+                  "column": 11
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "Queries target pet entities for attribute modification",
+          "src_name": "Pet Details and Mutation Processing",
+          "dst_name": "Visit Management and Entity Traversal",
+          "evidence": "Pet update workflows look up target pet records by ID from the owner aggregate before applying modified form attributes.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "call_sites": [
+                {
+                  "line": 189,
+                  "column": 27
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.4",
+          "dst_id": "1.1",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+              "call_sites": [
+                {
+                  "line": 189,
+                  "column": 27
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "Directs post-mutation redirects to owner profile routes",
+          "src_name": "Pet Details and Mutation Processing",
+          "dst_name": "Owner Lifecycle and Search Management",
+          "evidence": "Following successful pet creation or update processing, the controller extracts Owner.getId() to construct redirect URLs to the owner details view.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 153,
+                  "column": 59
+                },
+                {
+                  "line": 153,
+                  "column": 72
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 187,
+                  "column": 20
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.4",
+          "dst_id": "1.2",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 153,
+                  "column": 59
+                },
+                {
+                  "line": 153,
+                  "column": 72
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 187,
+                  "column": 20
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "Validates and parses pet type names during form execution",
+          "src_name": "Pet Details and Mutation Processing",
+          "dst_name": "Pet Type Formatting and Metadata Services",
+          "evidence": "Pet validation routines and update handlers evaluate pet type references and pet names populated via the formatting and type metadata services.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 192,
+                  "column": 28
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 41,
+                  "column": 21
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.4",
+          "dst_id": "1.5",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 148,
+                  "column": 24
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 192,
+                  "column": 28
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 41,
+                  "column": 21
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "Accesses entity naming metadata for duplicate verification",
+          "src_name": "Owner-Pet Composition and Form Binding",
+          "dst_name": "Pet Type Formatting and Metadata Services",
+          "evidence": "Composition logic and pet lookup operations inspect NamedEntity.getName() to compare pet names within the owner's pet collection.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 146,
+                  "column": 26
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.3",
+          "dst_id": "1.5",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 146,
+                  "column": 26
+                }
+              ],
+              "description": ""
+            },
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+              "call_sites": [
+                {
+                  "line": 111,
+                  "column": 31
+                },
+                {
+                  "line": 111,
+                  "column": 77
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "Coordinates parent entity identity assignment",
+          "src_name": "Owner-Pet Composition and Form Binding",
+          "dst_name": "Owner Lifecycle and Search Management",
+          "evidence": "During pet addition to an owner, the composition layer references BaseEntity.getId() to verify persistence status and maintain aggregate integrity.",
+          "key_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 105,
+                  "column": 75
+                },
+                {
+                  "line": 105,
+                  "column": 88
+                }
+              ],
+              "description": ""
+            }
+          ],
+          "src_id": "1.3",
+          "dst_id": "1.2",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+              "call_sites": [
+                {
+                  "line": 105,
+                  "column": 75
+                },
+                {
+                  "line": 105,
+                  "column": 88
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "calls",
+          "src_name": "Owner Lifecycle and Search Management",
+          "dst_name": "Owner-Pet Composition and Form Binding",
+          "evidence": "",
+          "key_edges": [],
+          "src_id": "1.2",
+          "dst_id": "1.3",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.toString()",
+              "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+              "call_sites": [
+                {
+                  "line": 159,
+                  "column": 24
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "calls",
+          "src_name": "Owner Lifecycle and Search Management",
+          "dst_name": "Pet Type Formatting and Metadata Services",
+          "evidence": "",
+          "key_edges": [],
+          "src_id": "1.2",
+          "dst_id": "1.5",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initPetBinder(WebDataBinder)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.PetValidator",
+              "call_sites": [
+                {
+                  "line": 96,
+                  "column": 31
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "calls",
+          "src_name": "Owner-Pet Composition and Form Binding",
+          "dst_name": "Visit Management and Entity Traversal",
+          "evidence": "",
+          "key_edges": [],
+          "src_id": "1.3",
+          "dst_id": "1.1",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.Pet",
+              "call_sites": [
+                {
+                  "line": 102,
+                  "column": 17
+                }
+              ],
+              "description": ""
+            }
+          ]
+        },
+        {
+          "relation": "calls",
+          "src_name": "Owner-Pet Composition and Form Binding",
+          "dst_name": "Pet Details and Mutation Processing",
+          "evidence": "",
+          "key_edges": [],
+          "src_id": "1.3",
+          "dst_id": "1.4",
+          "is_static": true,
+          "all_edges": [
+            {
+              "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+              "target": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getBirthDate()",
+              "call_sites": [
+                {
+                  "line": 116,
+                  "column": 11
+                },
+                {
+                  "line": 116,
+                  "column": 41
+                }
+              ],
+              "description": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Veterinarian Management",
+      "description": "Exposes clinic veterinarian rosters, specialties, and paginated web and REST/XML resources backed by cached database queries.",
+      "key_entities": [
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+          "reference_start_line": 36,
+          "reference_end_line": 74
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.VetRepository.VetRepository",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java",
+          "reference_start_line": 38,
+          "reference_end_line": 58
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.vet.Vets.Vets",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+          "reference_start_line": 31,
+          "reference_end_line": 43
+        }
+      ],
+      "source_cluster_ids": [
+        "4"
+      ],
+      "file_methods": [
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController",
+            "src.main.java.org.springframework.samples.petclinic.vet.VetController.VetController(VetRepository)",
+            "src.main.java.org.springframework.samples.petclinic.vet.VetController.showVetList(int, Model)",
+            "src.main.java.org.springframework.samples.petclinic.vet.VetController.addPaginationModel(int, Page, Model)",
+            "src.main.java.org.springframework.samples.petclinic.vet.VetController.findPaginated(int)",
+            "src.main.java.org.springframework.samples.petclinic.vet.VetController.showResourcesVetList()"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.vet.VetRepository.VetRepository",
+            "src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll()",
+            "src.main.java.org.springframework.samples.petclinic.vet.VetRepository.findAll(Pageable)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.vet.Vets.Vets",
+            "src.main.java.org.springframework.samples.petclinic.vet.Vets.getVetList()"
+          ]
+        }
+      ],
+      "component_id": "2",
+      "can_expand": false,
+      "components": [],
+      "components_relations": []
+    },
+    {
+      "name": "Web Presentation and Localization",
+      "description": "Configures Spring MVC web routing, locale resolution, and interceptors while serving the default landing page of the clinic application.",
+      "key_entities": [
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.WebConfiguration",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java",
+          "reference_start_line": 25,
+          "reference_end_line": 60
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.WelcomeController.WelcomeController",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java",
+          "reference_start_line": 23,
+          "reference_end_line": 30
+        }
+      ],
+      "source_cluster_ids": [
+        "5",
+        "10"
+      ],
+      "file_methods": [
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.WebConfiguration",
+            "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeResolver()",
+            "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.localeChangeInterceptor()",
+            "src.main.java.org.springframework.samples.petclinic.system.WebConfiguration.addInterceptors(InterceptorRegistry)"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.system.WelcomeController.WelcomeController",
+            "src.main.java.org.springframework.samples.petclinic.system.WelcomeController.welcome()"
+          ]
+        }
+      ],
+      "component_id": "3",
+      "can_expand": false,
+      "components": [],
+      "components_relations": []
+    },
+    {
+      "name": "Cache Configuration and Diagnostics",
+      "description": "Configures JCache/Caffeine caching customizations for performance optimization and provides diagnostic endpoints to test exception handling.",
+      "key_entities": [
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.CacheConfiguration",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java",
+          "reference_start_line": 33,
+          "reference_end_line": 53
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.system.CrashController.CrashController",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/system/CrashController.java",
+          "reference_start_line": 29,
+          "reference_end_line": 37
+        }
+      ],
+      "source_cluster_ids": [
+        "6",
+        "9"
+      ],
+      "file_methods": [
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.CacheConfiguration",
+            "src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.petclinicCacheConfigurationCustomizer()",
+            "src.main.java.org.springframework.samples.petclinic.system.CacheConfiguration.cacheConfiguration()"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/system/CrashController.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.system.CrashController.CrashController",
+            "src.main.java.org.springframework.samples.petclinic.system.CrashController.triggerException()"
+          ]
+        }
+      ],
+      "component_id": "4",
+      "can_expand": false,
+      "components": [],
+      "components_relations": []
+    },
+    {
+      "name": "Application Bootstrap",
+      "description": "Initializes the Spring Boot application runtime and registers AOT native image hints for resource and reflection support.",
+      "key_entities": [
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.PetClinicApplication.PetClinicApplication",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java",
+          "reference_start_line": 30,
+          "reference_end_line": 36
+        },
+        {
+          "qualified_name": "src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.PetClinicRuntimeHints",
+          "reference_file": "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+          "reference_start_line": 25,
+          "reference_end_line": 38
+        }
+      ],
+      "source_cluster_ids": [
+        "7",
+        "8"
+      ],
+      "file_methods": [
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.PetClinicApplication.PetClinicApplication",
+            "src.main.java.org.springframework.samples.petclinic.PetClinicApplication.main(String[])"
+          ]
+        },
+        {
+          "file_path": "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+          "methods": [
+            "src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.PetClinicRuntimeHints",
+            "src.main.java.org.springframework.samples.petclinic.PetClinicRuntimeHints.registerHints(RuntimeHints, ClassLoader)"
+          ]
+        }
+      ],
+      "component_id": "5",
+      "can_expand": false,
+      "components": [],
+      "components_relations": []
+    }
+  ],
+  "components_relations": [
+    {
+      "relation": "Resolves owner identities during view hydration",
+      "src_name": "Visit Management and Entity Traversal",
+      "dst_name": "Owner Lifecycle and Search Management",
+      "evidence": "Owner presentation and entity lookup mechanisms traverse aggregate roots using BaseEntity.getId() to coordinate navigation and view state.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 129,
+              "column": 26
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.1",
+      "dst_id": "1.2",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 129,
+              "column": 26
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Traverses pet collections within owner aggregates",
+      "src_name": "Visit Management and Entity Traversal",
+      "dst_name": "Owner-Pet Composition and Form Binding",
+      "evidence": "Entity traversal methods navigate owner-pet aggregate structures using Owner.getPets() and Pet instances to associate visits and locate pets for viewing.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+          "call_sites": [
+            {
+              "line": 128,
+              "column": 13
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+          "call_sites": [
+            {
+              "line": 127,
+              "column": 18
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.1",
+      "dst_id": "1.3",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+          "call_sites": [
+            {
+              "line": 128,
+              "column": 13
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPets()",
+          "call_sites": [
+            {
+              "line": 127,
+              "column": 18
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java|src.main.java.org.springframework.samples.petclinic.owner.OwnerController.findOwner(Integer)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.Owner",
+          "call_sites": [
+            {
+              "line": 66,
+              "column": 32
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "calls",
+      "src_name": "Owner Lifecycle and Search Management",
+      "dst_name": "Owner-Pet Composition and Form Binding",
+      "evidence": "",
+      "key_edges": [],
+      "src_id": "1.2",
+      "dst_id": "1.3",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.toString()",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+          "call_sites": [
+            {
+              "line": 159,
+              "column": 24
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "calls",
+      "src_name": "Owner Lifecycle and Search Management",
+      "dst_name": "Pet Type Formatting and Metadata Services",
+      "evidence": "",
+      "key_edges": [],
+      "src_id": "1.2",
+      "dst_id": "1.5",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initPetBinder(WebDataBinder)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.PetValidator",
+          "call_sites": [
+            {
+              "line": 96,
+              "column": 31
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "calls",
+      "src_name": "Owner-Pet Composition and Form Binding",
+      "dst_name": "Visit Management and Entity Traversal",
+      "evidence": "",
+      "key_edges": [],
+      "src_id": "1.3",
+      "dst_id": "1.1",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.initCreationForm(Owner, ModelMap)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.Pet",
+          "call_sites": [
+            {
+              "line": 102,
+              "column": 17
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Coordinates parent entity identity assignment",
+      "src_name": "Owner-Pet Composition and Form Binding",
+      "dst_name": "Owner Lifecycle and Search Management",
+      "evidence": "During pet addition to an owner, the composition layer references BaseEntity.getId() to verify persistence status and maintain aggregate integrity.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 105,
+              "column": 75
+            },
+            {
+              "line": 105,
+              "column": 88
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.3",
+      "dst_id": "1.2",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 105,
+              "column": 75
+            },
+            {
+              "line": 105,
+              "column": 88
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "calls",
+      "src_name": "Owner-Pet Composition and Form Binding",
+      "dst_name": "Pet Details and Mutation Processing",
+      "evidence": "",
+      "key_edges": [],
+      "src_id": "1.3",
+      "dst_id": "1.4",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Pet.java|src.main.java.org.springframework.samples.petclinic.owner.Pet.getBirthDate()",
+          "call_sites": [
+            {
+              "line": 116,
+              "column": 11
+            },
+            {
+              "line": 116,
+              "column": 41
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Accesses entity naming metadata for duplicate verification",
+      "src_name": "Owner-Pet Composition and Form Binding",
+      "dst_name": "Pet Type Formatting and Metadata Services",
+      "evidence": "Composition logic and pet lookup operations inspect NamedEntity.getName() to compare pet names within the owner's pet collection.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 146,
+              "column": 26
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.3",
+      "dst_id": "1.5",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 146,
+              "column": 26
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processCreationForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 111,
+              "column": 31
+            },
+            {
+              "line": 111,
+              "column": 77
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Queries target pet entities for attribute modification",
+      "src_name": "Pet Details and Mutation Processing",
+      "dst_name": "Visit Management and Entity Traversal",
+      "evidence": "Pet update workflows look up target pet records by ID from the owner aggregate before applying modified form attributes.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "call_sites": [
+            {
+              "line": 189,
+              "column": 27
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.4",
+      "dst_id": "1.1",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(Integer)",
+          "call_sites": [
+            {
+              "line": 189,
+              "column": 27
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Directs post-mutation redirects to owner profile routes",
+      "src_name": "Pet Details and Mutation Processing",
+      "dst_name": "Owner Lifecycle and Search Management",
+      "evidence": "Following successful pet creation or update processing, the controller extracts Owner.getId() to construct redirect URLs to the owner details view.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 153,
+              "column": 59
+            },
+            {
+              "line": 153,
+              "column": 72
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 187,
+              "column": 20
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.4",
+      "dst_id": "1.2",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 153,
+              "column": 59
+            },
+            {
+              "line": 153,
+              "column": 72
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.getId()",
+          "call_sites": [
+            {
+              "line": 187,
+              "column": 20
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Mutates and associates pet instances within owner models",
+      "src_name": "Pet Details and Mutation Processing",
+      "dst_name": "Owner-Pet Composition and Form Binding",
+      "evidence": "Pet form submission handlers invoke Owner.addPet() and Owner.getPet() to link pet entities and verify uniqueness against existing pets in the owner aggregate.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+          "call_sites": [
+            {
+              "line": 152,
+              "column": 28
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+          "call_sites": [
+            {
+              "line": 197,
+              "column": 10
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+          "call_sites": [
+            {
+              "line": 51,
+              "column": 11
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.4",
+      "dst_id": "1.3",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.getPet(String, boolean)",
+          "call_sites": [
+            {
+              "line": 152,
+              "column": 28
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.isDuplicatePetNameViolation(DataIntegrityViolationException)",
+          "call_sites": [
+            {
+              "line": 171,
+              "column": 9
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/owner/Owner.java|src.main.java.org.springframework.samples.petclinic.owner.Owner.addPet(Pet)",
+          "call_sites": [
+            {
+              "line": 197,
+              "column": 10
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java|src.main.java.org.springframework.samples.petclinic.model.BaseEntity.isNew()",
+          "call_sites": [
+            {
+              "line": 51,
+              "column": 11
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Validates and parses pet type names during form execution",
+      "src_name": "Pet Details and Mutation Processing",
+      "dst_name": "Pet Type Formatting and Metadata Services",
+      "evidence": "Pet validation routines and update handlers evaluate pet type references and pet names populated via the formatting and type metadata services.",
+      "key_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 192,
+              "column": 28
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 41,
+              "column": 21
+            }
+          ],
+          "description": ""
+        }
+      ],
+      "src_id": "1.4",
+      "dst_id": "1.5",
+      "is_static": true,
+      "all_edges": [
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.processUpdateForm(Owner, Pet, BindingResult, RedirectAttributes)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 148,
+              "column": 24
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java|src.main.java.org.springframework.samples.petclinic.owner.PetController.updatePetDetails(Owner, Pet)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 192,
+              "column": 28
+            }
+          ],
+          "description": ""
+        },
+        {
+          "source": "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java|src.main.java.org.springframework.samples.petclinic.owner.PetValidator.validate(Object, Errors)",
+          "target": "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java|src.main.java.org.springframework.samples.petclinic.model.NamedEntity.getName()",
+          "call_sites": [
+            {
+              "line": 41,
+              "column": 21
+            }
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "relation": "Binds repository query caching to configured cache region",
+      "src_name": "Veterinarian Management",
+      "dst_name": "Cache Configuration and Diagnostics",
+      "evidence": "`VetRepository` methods annotate data retrieval with `@Cacheable(\"vets\")`, resolving at runtime against the JCache/Caffeine cache region configured by `CacheConfiguration.petclinicCacheConfigurationCustomizer()`.",
+      "key_edges": [],
+      "src_id": "2",
+      "dst_id": "4",
+      "is_static": false,
+      "all_edges": []
+    },
+    {
+      "relation": "Intercepts incoming web requests to apply locale settings",
+      "src_name": "Web Presentation and Localization",
+      "dst_name": "Owner and Pet Management",
+      "evidence": "`WebConfiguration.addInterceptors()` registers `LocaleChangeInterceptor` into the Spring MVC interceptor chain, processing request parameters (e.g. `?lang=...`) across all `/owners/**` endpoint invocations.",
+      "key_edges": [],
+      "src_id": "3",
+      "dst_id": "1",
+      "is_static": false,
+      "all_edges": []
+    },
+    {
+      "relation": "Intercepts incoming web requests to apply locale settings",
+      "src_name": "Web Presentation and Localization",
+      "dst_name": "Veterinarian Management",
+      "evidence": "The registered `LocaleChangeInterceptor` in `WebConfiguration` intercepts incoming requests for `/vets` and `/vets.html` endpoints before handler execution in `VetController`.",
+      "key_edges": [],
+      "src_id": "3",
+      "dst_id": "2",
+      "is_static": false,
+      "all_edges": []
+    },
+    {
+      "relation": "Bootstraps and registers domain controllers and repositories",
+      "src_name": "Application Bootstrap",
+      "dst_name": "Owner and Pet Management",
+      "evidence": "Spring Boot component scanning via `@SpringBootApplication` on `PetClinicApplication` discovers and instantiates `@Controller` classes (`OwnerController`, `PetController`, `VisitController`) and Spring Data repository interfaces (`OwnerRepository`).",
+      "key_edges": [],
+      "src_id": "5",
+      "dst_id": "1",
+      "is_static": false,
+      "all_edges": []
+    },
+    {
+      "relation": "Bootstraps and registers veterinarian controllers and repositories",
+      "src_name": "Application Bootstrap",
+      "dst_name": "Veterinarian Management",
+      "evidence": "Spring Boot component scanning from `PetClinicApplication` discovers and manages `@Controller` class `VetController` and the `@Transactional` repository `VetRepository`.",
+      "key_edges": [],
+      "src_id": "5",
+      "dst_id": "2",
+      "is_static": false,
+      "all_edges": []
+    },
+    {
+      "relation": "Registers web configuration and landing page endpoints",
+      "src_name": "Application Bootstrap",
+      "dst_name": "Web Presentation and Localization",
+      "evidence": "Component scanning registers `@Configuration` class `WebConfiguration` and `@Controller` class `WelcomeController` into the Spring MVC application context.",
+      "key_edges": [],
+      "src_id": "5",
+      "dst_id": "3",
+      "is_static": false,
+      "all_edges": []
+    },
+    {
+      "relation": "Initializes cache subsystem and diagnostic controllers",
+      "src_name": "Application Bootstrap",
+      "dst_name": "Cache Configuration and Diagnostics",
+      "evidence": "Component scanning loads `@Configuration` `@EnableCaching` class `CacheConfiguration` and diagnostic controller `CrashController` into the Spring runtime context.",
+      "key_edges": [],
+      "src_id": "5",
+      "dst_id": "4",
+      "is_static": false,
+      "all_edges": []
+    }
+  ]
+}
