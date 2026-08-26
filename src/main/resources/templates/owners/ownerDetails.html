@@ -77,6 +77,28 @@
     </tr>
 
   </table>
+
+  <div th:if="${!#lists.isEmpty(ownerChanges)}">
+    <br />
+    <h2 th:text="#{ownerChangeHistory}">Recent Record Activity</h2>
+    <table class="table table-striped" id="owner-change-history">
+      <thead>
+        <tr>
+          <th th:text="#{changedAt}">When</th>
+          <th th:text="#{changeType}">Change</th>
+          <th th:text="#{changeDetails}">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="change : ${ownerChanges}">
+          <td th:text="${#temporals.format(change.changedAt, 'yyyy-MM-dd HH:mm')}"></td>
+          <td th:text="${change.changeType}"></td>
+          <td th:text="${change.summary}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <script>
     // Function to hide the success and error messages after 3 seconds
     function hideMessages() {
