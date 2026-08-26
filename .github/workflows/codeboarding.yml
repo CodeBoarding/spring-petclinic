@@ -32,6 +32,12 @@ jobs:
        startsWith(github.event.comment.body, '/codeboarding') &&
        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))
     steps:
+      - name: Set up Java for CodeBoarding
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
       - uses: CodeBoarding/CodeBoarding-action@v1
         with:
           # Free tier needs no secret; these fall through to the hosted OIDC tier when
