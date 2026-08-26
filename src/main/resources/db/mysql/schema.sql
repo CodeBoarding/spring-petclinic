@@ -35,6 +35,16 @@ CREATE TABLE IF NOT EXISTS owners (
   INDEX(last_name)
 ) engine=InnoDB;
 
+CREATE TABLE IF NOT EXISTS owner_changes (
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  owner_id INT(4) UNSIGNED NOT NULL,
+  change_type VARCHAR(40) NOT NULL,
+  summary VARCHAR(255) NOT NULL,
+  changed_at TIMESTAMP NOT NULL,
+  INDEX(owner_id),
+  FOREIGN KEY (owner_id) REFERENCES owners(id)
+) engine=InnoDB;
+
 CREATE TABLE IF NOT EXISTS pets (
   id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(30),

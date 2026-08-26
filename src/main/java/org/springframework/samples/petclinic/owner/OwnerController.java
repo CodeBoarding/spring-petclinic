@@ -52,8 +52,11 @@ class OwnerController {
 
 	private final OwnerRepository owners;
 
-	public OwnerController(OwnerRepository owners) {
+	private final OwnerChangeTracker changeTracker;
+
+	public OwnerController(OwnerRepository owners, OwnerChangeTracker changeTracker) {
 		this.owners = owners;
+		this.changeTracker = changeTracker;
 	}
 
 	@InitBinder
@@ -82,6 +85,7 @@ class OwnerController {
 		}
 
 		this.owners.save(owner);
+		this.changeTracker.ownerCreated(owner);
 		redirectAttributes.addFlashAttribute("message", "New Owner Created");
 		return "redirect:/owners/" + owner.getId();
 	}
@@ -157,6 +161,7 @@ class OwnerController {
 
 		owner.setId(ownerId);
 		this.owners.save(owner);
+		this.changeTracker.ownerUpdated(owner);
 		redirectAttributes.addFlashAttribute("message", "Owner Values Updated");
 		return "redirect:/owners/{ownerId}";
 	}
@@ -173,6 +178,7 @@ class OwnerController {
 		Owner owner = optionalOwner.orElseThrow(() -> new IllegalArgumentException(
 				"Owner not found with id: " + ownerId + ". Please ensure the ID is correct "));
 		mav.addObject(owner);
+		mav.addObject("ownerChanges", this.changeTracker.changesFor(ownerId));
 		return mav;
 	}
 

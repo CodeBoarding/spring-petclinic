@@ -54,9 +54,12 @@ class PetController {
 
 	private final PetTypeRepository types;
 
-	public PetController(OwnerRepository owners, PetTypeRepository types) {
+	private final OwnerChangeTracker changeTracker;
+
+	public PetController(OwnerRepository owners, PetTypeRepository types, OwnerChangeTracker changeTracker) {
 		this.owners = owners;
 		this.types = types;
+		this.changeTracker = changeTracker;
 	}
 
 	@ModelAttribute("types")
@@ -124,6 +127,7 @@ class PetController {
 		try {
 			owner.addPet(pet);
 			this.owners.saveAndFlush(owner);
+			this.changeTracker.petAdded(owner, pet);
 		}
 		catch (DataIntegrityViolationException ex) {
 			if (!isDuplicatePetNameViolation(ex)) {
@@ -166,6 +170,7 @@ class PetController {
 
 		try {
 			updatePetDetails(owner, pet);
+			this.changeTracker.petUpdated(owner, pet);
 		}
 		catch (DataIntegrityViolationException ex) {
 			if (!isDuplicatePetNameViolation(ex)) {
