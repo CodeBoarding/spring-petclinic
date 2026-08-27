@@ -38,7 +38,10 @@ public class CacheOperations {
 	 * @return {@code true} when the configured cache was available
 	 */
 	public boolean evictOwnerSearch() {
-		Cache cache = this.cacheManager.getCache(OWNER_SEARCH_CACHE);
+		return evict(ownerSearchCache());
+	}
+
+	private boolean evict(Cache cache) {
 		if (cache == null) {
 			return false;
 		}
@@ -50,7 +53,11 @@ public class CacheOperations {
 	 * Report whether the owner-search cache is currently available.
 	 */
 	public CacheStatus ownerSearchStatus() {
-		return new CacheStatus(OWNER_SEARCH_CACHE, this.cacheManager.getCache(OWNER_SEARCH_CACHE) != null);
+		return new CacheStatus(OWNER_SEARCH_CACHE, ownerSearchCache() != null);
+	}
+
+	private Cache ownerSearchCache() {
+		return this.cacheManager.getCache(OWNER_SEARCH_CACHE);
 	}
 
 	public record CacheStatus(String name, boolean available) {
