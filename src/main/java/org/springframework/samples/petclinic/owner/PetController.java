@@ -54,9 +54,13 @@ class PetController {
 
 	private final PetTypeRepository types;
 
-	public PetController(OwnerRepository owners, PetTypeRepository types) {
+	private final OwnerDirectorySynchronizer ownerDirectorySynchronizer;
+
+	public PetController(OwnerRepository owners, PetTypeRepository types,
+			OwnerDirectorySynchronizer ownerDirectorySynchronizer) {
 		this.owners = owners;
 		this.types = types;
+		this.ownerDirectorySynchronizer = ownerDirectorySynchronizer;
 	}
 
 	@ModelAttribute("types")
@@ -132,6 +136,7 @@ class PetController {
 			result.rejectValue("name", "duplicate", "already exists");
 			return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
 		}
+		this.ownerDirectorySynchronizer.ownerAggregateChanged();
 		redirectAttributes.addFlashAttribute("message", "New Pet has been Added");
 		return "redirect:/owners/{ownerId}";
 	}
@@ -174,6 +179,7 @@ class PetController {
 			result.rejectValue("name", "duplicate", "already exists");
 			return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
 		}
+		this.ownerDirectorySynchronizer.ownerAggregateChanged();
 		redirectAttributes.addFlashAttribute("message", "Pet details has been edited");
 		return "redirect:/owners/{ownerId}";
 	}
