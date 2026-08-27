@@ -20,6 +20,8 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.samples.petclinic.system.CacheOperations;
 
 /**
  * Repository class for <code>Owner</code> domain objects. All method names are compliant
@@ -42,6 +44,7 @@ public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 	 * @return a Collection of matching {@link Owner}s (or an empty Collection if none
 	 * found)
 	 */
+	@Cacheable(CacheOperations.OWNER_SEARCH_CACHE)
 	Page<Owner> findByLastNameStartingWith(String lastName, Pageable pageable);
 
 	/**

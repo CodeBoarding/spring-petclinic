@@ -52,8 +52,11 @@ class OwnerController {
 
 	private final OwnerRepository owners;
 
-	public OwnerController(OwnerRepository owners) {
+	private final OwnerDirectorySynchronizer ownerDirectorySynchronizer;
+
+	public OwnerController(OwnerRepository owners, OwnerDirectorySynchronizer ownerDirectorySynchronizer) {
 		this.owners = owners;
+		this.ownerDirectorySynchronizer = ownerDirectorySynchronizer;
 	}
 
 	@InitBinder
@@ -82,6 +85,7 @@ class OwnerController {
 		}
 
 		this.owners.save(owner);
+		this.ownerDirectorySynchronizer.ownerAggregateChanged();
 		redirectAttributes.addFlashAttribute("message", "New Owner Created");
 		return "redirect:/owners/" + owner.getId();
 	}
@@ -157,6 +161,7 @@ class OwnerController {
 
 		owner.setId(ownerId);
 		this.owners.save(owner);
+		this.ownerDirectorySynchronizer.ownerAggregateChanged();
 		redirectAttributes.addFlashAttribute("message", "Owner Values Updated");
 		return "redirect:/owners/{ownerId}";
 	}
