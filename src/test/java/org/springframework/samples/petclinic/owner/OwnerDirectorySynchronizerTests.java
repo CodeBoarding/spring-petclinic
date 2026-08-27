@@ -16,8 +16,10 @@
 package org.springframework.samples.petclinic.owner;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.cache.Cache;
 import org.springframework.samples.petclinic.system.CacheOperations;
 
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -26,11 +28,13 @@ class OwnerDirectorySynchronizerTests {
 	@Test
 	void ownerAggregateChangesInvalidateCachedSearches() {
 		CacheOperations cacheOperations = mock(CacheOperations.class);
+		Cache ownerSearchCache = mock(Cache.class);
+		given(cacheOperations.ownerSearchCache()).willReturn(ownerSearchCache);
 		OwnerDirectorySynchronizer synchronizer = new OwnerDirectorySynchronizer(cacheOperations);
 
 		synchronizer.ownerAggregateChanged();
 
-		verify(cacheOperations).evictOwnerSearch();
+		verify(cacheOperations).evict(ownerSearchCache);
 	}
 
 }

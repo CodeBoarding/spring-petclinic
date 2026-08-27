@@ -31,7 +31,7 @@ public class OwnerDirectorySynchronizer {
 	}
 
 	public void ownerAggregateChanged() {
-		this.cacheOperations.evictOwnerSearch();
+		this.cacheOperations.evict(this.cacheOperations.ownerSearchCache());
 	}
 
 }

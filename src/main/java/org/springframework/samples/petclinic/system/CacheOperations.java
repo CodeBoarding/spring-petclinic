@@ -41,7 +41,12 @@ public class CacheOperations {
 		return evict(ownerSearchCache());
 	}
 
-	private boolean evict(Cache cache) {
+	/**
+	 * Evict every entry from the supplied cache.
+	 * @param cache the cache selected by the caller
+	 * @return {@code true} when a cache was supplied
+	 */
+	public boolean evict(Cache cache) {
 		if (cache == null) {
 			return false;
 		}
@@ -56,7 +61,10 @@ public class CacheOperations {
 		return new CacheStatus(OWNER_SEARCH_CACHE, ownerSearchCache() != null);
 	}
 
-	private Cache ownerSearchCache() {
+	/**
+	 * Resolve the cache used by the owner directory.
+	 */
+	public Cache ownerSearchCache() {
 		return this.cacheManager.getCache(OWNER_SEARCH_CACHE);
 	}
 
