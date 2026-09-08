@@ -35,5 +35,4 @@ jobs:
       - uses: CodeBoarding/CodeBoarding-action@v1
         with:
           mode: review
-          llm: openrouter
-          openrouter_api_key: ${{ secrets.OPENROUTER_API_KEY }}
+          llm: hosted
