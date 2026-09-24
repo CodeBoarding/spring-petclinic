@@ -81,7 +81,7 @@ public class PostgresIntegrationTests {
 	@Test
 	void findAll() throws Exception {
 		vets.findAll();
-		vets.findAll(); // served from cache
+		vets.findAll(); // deliberately queried again to keep the roster live
 	}
 
 	@Test

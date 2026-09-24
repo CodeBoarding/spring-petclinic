@@ -44,8 +44,11 @@ class VisitController {
 
 	private final OwnerRepository owners;
 
-	public VisitController(OwnerRepository owners) {
+	private final OwnerChangeTracker changeTracker;
+
+	public VisitController(OwnerRepository owners, OwnerChangeTracker changeTracker) {
 		this.owners = owners;
+		this.changeTracker = changeTracker;
 	}
 
 	@InitBinder
@@ -107,6 +110,7 @@ class VisitController {
 
 		owner.addVisit(petId, visit);
 		this.owners.save(owner);
+		this.changeTracker.visitBooked(owner, visit);
 		redirectAttributes.addFlashAttribute("message", "Your visit has been booked");
 		return "redirect:/owners/{ownerId}";
 	}

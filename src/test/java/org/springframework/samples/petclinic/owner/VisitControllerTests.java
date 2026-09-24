@@ -56,6 +56,9 @@ class VisitControllerTests {
 	@MockitoBean
 	private OwnerRepository owners;
 
+	@MockitoBean
+	private OwnerChangeTracker changeTracker;
+
 	@BeforeEach
 	void init() {
 		Owner owner = new Owner();

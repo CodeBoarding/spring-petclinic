@@ -61,7 +61,7 @@ class MySqlIntegrationTests {
 	@Test
 	void findAll() {
 		vets.findAll();
-		vets.findAll(); // served from cache
+		vets.findAll(); // deliberately queried again to keep the roster live
 	}
 
 	@Test

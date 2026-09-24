@@ -17,6 +17,8 @@
 package org.springframework.samples.petclinic.system;
 
 import org.springframework.boot.cache.autoconfigure.JCacheManagerCustomizer;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,11 +32,25 @@ import javax.cache.configuration.MutableConfiguration;
  */
 @Configuration(proxyBeanMethods = false)
 @EnableCaching
-class CacheConfiguration {
+public class CacheConfiguration {
+
+	public static final String OWNER_SEARCH_CACHE = "ownerSearch";
 
 	@Bean
 	public JCacheManagerCustomizer petclinicCacheConfigurationCustomizer() {
-		return cm -> cm.createCache("vets", cacheConfiguration());
+		return cm -> cm.createCache(OWNER_SEARCH_CACHE, cacheConfiguration());
+	}
+
+	/**
+	 * Clear owner projections after a change so front-desk searches immediately see the
+	 * latest record.
+	 * @param cacheManager the application's cache manager
+	 */
+	public void refreshOwnerData(CacheManager cacheManager) {
+		Cache ownerSearch = cacheManager.getCache(OWNER_SEARCH_CACHE);
+		if (ownerSearch != null) {
+			ownerSearch.clear();
+		}
 	}
 
 	/**
