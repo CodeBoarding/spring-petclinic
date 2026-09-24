@@ -2,7 +2,7 @@ name: CodeBoarding review
 
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review, closed, synchronize]
+    types: [opened, reopened, ready_for_review, synchronize]
   issue_comment:
     types: [created]
 
@@ -12,7 +12,7 @@ permissions: {}
 
 concurrency:
   group: codeboarding-${{ github.event.pull_request.number || github.event.issue.number }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' }}
+  cancel-in-progress: false
 
 jobs:
   review:
@@ -25,7 +25,7 @@ jobs:
       id-token: write       # mint a GitHub OIDC token for the free hosted tier (write is the only level for id-token)
       actions: read         # let a repeat review download the analysis an earlier run published, instead of re-deriving the whole PR
     if: >
-      (github.event_name == 'pull_request' && github.event.action != 'closed' &&
+      (github.event_name == 'pull_request' &&
        github.event.pull_request.draft == false &&
        github.event.pull_request.head.repo.full_name == github.repository) ||
       (github.event_name == 'issue_comment' && github.event.issue.pull_request != null &&
@@ -34,8 +34,5 @@ jobs:
     steps:
       - uses: CodeBoarding/CodeBoarding-action@v1
         with:
-          # Free tier needs no secret; these fall through to the hosted OIDC tier when
-          # unset. Add either repo secret (Settings → Secrets and variables → Actions)
-          # for more/unmetered usage; no YAML edit required.
-          llm_api_key: ${{ secrets.OPENROUTER_API_KEY }}   # BYO LLM provider key (OpenRouter)
-          license_key: ${{ secrets.CODEBOARDING_LICENSE }}  # CodeBoarding paid plan
+          mode: review
+          llm: hosted
