@@ -1,0 +1,29 @@
+name: CodeBoarding full analysis comparison
+
+on:
+  push:
+    branches: [test/full-analysis-pr5]
+    paths:
+      - .github/workflows/codeboarding-full-comparison.yml
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: codeboarding-full-analysis-pr5
+  cancel-in-progress: false
+
+jobs:
+  full-analysis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      # Match PR #5's original run, including CodeBoarding engine 0.14.0.
+      - uses: CodeBoarding/CodeBoarding-action@1851afcc2c78adc7961802e823177eba2d3dfee5
+        with:
+          mode: sync
+          llm: hosted
+          force_full: true
+          sync_strategy: push
+          target_branch: test/full-analysis-pr5
