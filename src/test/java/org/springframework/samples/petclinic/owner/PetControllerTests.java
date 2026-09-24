@@ -67,6 +67,9 @@ class PetControllerTests {
 	@MockitoBean
 	private PetTypeRepository types;
 
+	@MockitoBean
+	private OwnerDirectorySynchronizer ownerDirectorySynchronizer;
+
 	@BeforeEach
 	void setup() {
 		PetType cat = new PetType();
